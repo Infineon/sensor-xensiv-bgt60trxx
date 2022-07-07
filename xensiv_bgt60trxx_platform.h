@@ -1,11 +1,12 @@
 /***********************************************************************************************//**
  * \file xensiv_bgt60trxx_platform.h
  *
- * Description: XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors library platform dependencies
+ * \brief
+ * XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors library platform dependencies
  *
  ***************************************************************************************************
  * \copyright
- * Copyright 2021 Infineon Technologies AG
+ * Copyright 2022 Infineon Technologies AG
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,21 +44,57 @@ extern "C" {
 #endif
 
 /**
- * @brief Platform-specific function that performs an SPI transfer.
+ * @brief Platform-specific function that sets the output value of the RST pin.
  *
- * @param[in] dev SPI object.
- * @param[in] tx_data Transmit buffer. @note: Set to NULL to fill data.
- * @param[in] tx_len Number of bytes to write.
- * @param[in] rx_data Receive buffer. @note: Set to NULL if not interested in read data.
- * @param[in] rx_len Number of bytes to read.
- * @return XENSIV_BGT60TRXX_STATUS_OK if the transfer is complete without errors, otherwise returns
- * XENSIV_BGT60TRXX_STATUS_SPI_ERROR.
+ * @param[in] iface Platform SPI interface object
+ * @param[in] val The value to be set (high = true, low = false)
  */
-int32_t xensiv_bgt60trxx_platform_spi_transfer(void* dev,
-                                               const uint8_t* tx_data,
-                                               uint32_t tx_len,
+void xensiv_bgt60trxx_platform_rst_set(const void* iface, bool val);
+
+/**
+ * @brief Platform-specific function that that sets the output value of the SPI CS pin.
+ *
+ * @param[in] iface Platform SPI interface object
+ * @param[in] val The value to be set (high = true, low = false)
+ */
+void xensiv_bgt60trxx_platform_spi_cs_set(const void* iface, bool val);
+
+/**
+ * @brief Platform-specific function that performs a SPI write/read transfer to
+ * the register file of the sensor.
+ * Synchronously write a block of data out and receive a block of data in.
+ * If the data that will be received is not important, pass NULL as rx_data.
+ * If the data that will be transmitted is not important, pass NULL as tx_data.
+ * Note that passing NULL as rxBuffer and txBuffer are considered invalid cases.
+ *
+ * @param[in] iface Platform SPI interface object.
+ * @param[in] tx_data The pointer of the buffer with data to transmit.
+ * @param[in] rx_data The pointer to the buffer to store received data.
+ * @param[in] len The number of data elements to transmit and receive.
+ * @return XENSIV_BGT60TRXX_STATUS_OK if the transfer is completed without errors,
+ * otherwise returns XENSIV_BGT60TRXX_STATUS_COM_ERROR.
+ */
+int32_t xensiv_bgt60trxx_platform_spi_transfer(void* iface,
+                                               uint8_t* tx_data,
                                                uint8_t* rx_data,
-                                               uint32_t rx_len);
+                                               uint32_t len);
+
+/**
+ * @brief Platform-specific function that performs a SPI burst read to
+ * receive a block of data from sensor FIFO.
+ * ADC samples are stored in the sensor FIFO using 12bits.
+ * It is expected to use SPI read transfers with a word length of 12bits.
+ * It is expected to drive TX high while data is read in from RX.
+ *
+ * @param[in] iface Platform SPI interface object.
+ * @param[in] rx_data The pointer to the buffer to store the received data.
+ * @param[in] len The number of FIFO data elements of 12bits to receive.
+ * @return XENSIV_BGT60TRXX_STATUS_OK if the read is completed without errors,
+ * otherwise returns XENSIV_BGT60TRXX_STATUS_COM_ERROR.
+ */
+int32_t xensiv_bgt60trxx_platform_spi_fifo_read(void* iface,
+                                                uint16_t* rx_data,
+                                                uint32_t len);
 
 /**
  * @brief Platform-specific function that waits for a specified time period in milliseconds.

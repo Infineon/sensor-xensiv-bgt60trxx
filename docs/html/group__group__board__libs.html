@@ -87,8 +87,8 @@ $(document).ready(function(){initNavTree('group__group__board__libs.html','');})
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -106,23 +106,31 @@ $(document).ready(function(){initNavTree('group__group__board__libs.html','');})
 <li>enable/disable the data test mode</li>
 <li>software reset the sensor</li>
 </ul>
-<p>More information about the XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors is available at: <a href="https://www.infineon.com/cms/de/product/sensor/radar-sensors/radar-sensors-for-iot/60ghz-radar/">https://www.infineon.com/cms/de/product/sensor/radar-sensors/radar-sensors-for-iot/60ghz-radar/</a></p>
-<dl class="section note"><dt>Note</dt><dd>This library uses delays while waiting for the sensor. If the RTOS_AWARE component is set or CY_RTOS_AWARE is defined, the driver will defer to the RTOS for delays. Because of this, it is not safe to call any functions other than <a class="el" href="group__group__board__libs.html#gaa9ebfaddf1aeded98dd4eab69999c7fe">xensiv_bgt60trxx_init</a> until after the RTOS scheduler has started. </dd></dl>
+<p>More information about the XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors is available at: <a href="https://www.infineon.com/cms/de/product/sensor/radar-sensors/radar-sensors-for-iot/60ghz-radar/">https://www.infineon.com/cms/de/product/sensor/radar-sensors/radar-sensors-for-iot/60ghz-radar/</a> </p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structxensiv__bgt60trxx__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a></td></tr>
+<tr class="memdesc:structxensiv__bgt60trxx__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">XENSIV(TM) BGT60TRxx sensor device object.  <a href="group__group__board__libs.html#structxensiv__bgt60trxx__t">More...</a><br /></td></tr>
+<tr class="separator:structxensiv__bgt60trxx__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ga754adc18368d63b331a2c9cbeff0f763"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga754adc18368d63b331a2c9cbeff0f763">XENSIV_BGT60TRXX_STATUS_OK</a>&#160;&#160;&#160;(0)</td></tr>
 <tr class="memdesc:ga754adc18368d63b331a2c9cbeff0f763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating successful operation.  <a href="#ga754adc18368d63b331a2c9cbeff0f763">More...</a><br /></td></tr>
 <tr class="separator:ga754adc18368d63b331a2c9cbeff0f763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga469aebfaf7f4f241360b66dc9a23cd64"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga469aebfaf7f4f241360b66dc9a23cd64">XENSIV_BGT60TRXX_STATUS_SPI_ERROR</a>&#160;&#160;&#160;(1)</td></tr>
-<tr class="memdesc:ga469aebfaf7f4f241360b66dc9a23cd64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating a communication error.  <a href="#ga469aebfaf7f4f241360b66dc9a23cd64">More...</a><br /></td></tr>
-<tr class="separator:ga469aebfaf7f4f241360b66dc9a23cd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8e6a506054d4db054889e8ad5a3224b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga8e6a506054d4db054889e8ad5a3224b5">XENSIV_BGT60TRXX_STATUS_CHIPID_ERROR</a>&#160;&#160;&#160;(2)</td></tr>
-<tr class="memdesc:ga8e6a506054d4db054889e8ad5a3224b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating an unsupported device error.  <a href="#ga8e6a506054d4db054889e8ad5a3224b5">More...</a><br /></td></tr>
-<tr class="separator:ga8e6a506054d4db054889e8ad5a3224b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26bf1e1d87ead531ca95a8d96c0199ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga26bf1e1d87ead531ca95a8d96c0199ef">XENSIV_BGT60TRXX_STATUS_COM_ERROR</a>&#160;&#160;&#160;(1)</td></tr>
+<tr class="memdesc:ga26bf1e1d87ead531ca95a8d96c0199ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating a communication error.  <a href="#ga26bf1e1d87ead531ca95a8d96c0199ef">More...</a><br /></td></tr>
+<tr class="separator:ga26bf1e1d87ead531ca95a8d96c0199ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa9a9977b6a50c1a9f275427f292add8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaaa9a9977b6a50c1a9f275427f292add8">XENSIV_BGT60TRXX_STATUS_DEV_ERROR</a>&#160;&#160;&#160;(2)</td></tr>
+<tr class="memdesc:gaaa9a9977b6a50c1a9f275427f292add8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating an unsupported device error.  <a href="#gaaa9a9977b6a50c1a9f275427f292add8">More...</a><br /></td></tr>
+<tr class="separator:gaaa9a9977b6a50c1a9f275427f292add8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e48504b60fbc67c16e5eca733c92d0c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga2e48504b60fbc67c16e5eca733c92d0c">XENSIV_BGT60TRXX_STATUS_TIMEOUT_ERROR</a>&#160;&#160;&#160;(3)</td></tr>
-<tr class="memdesc:ga2e48504b60fbc67c16e5eca733c92d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating a timeout waiting for reset completion.  <a href="#ga2e48504b60fbc67c16e5eca733c92d0c">More...</a><br /></td></tr>
+<tr class="memdesc:ga2e48504b60fbc67c16e5eca733c92d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating an operation timeout error.  <a href="#ga2e48504b60fbc67c16e5eca733c92d0c">More...</a><br /></td></tr>
 <tr class="separator:ga2e48504b60fbc67c16e5eca733c92d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga621827564508451ebd8bd855358dea80"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga621827564508451ebd8bd855358dea80">XENSIV_BGT60TRXX_STATUS_GSR0_ERROR</a>&#160;&#160;&#160;(4)</td></tr>
+<tr class="memdesc:ga621827564508451ebd8bd855358dea80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result code indicating that an error occurred while reading from FIFO.  <a href="#ga621827564508451ebd8bd855358dea80">More...</a><br /></td></tr>
+<tr class="separator:ga621827564508451ebd8bd855358dea80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5d329c284c5ba4b01d7bb252c6e908b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga5d329c284c5ba4b01d7bb252c6e908b7">XENSIV_BGT60TRXX_INITIAL_TEST_WORD</a>&#160;&#160;&#160;(0x0001U)</td></tr>
 <tr class="memdesc:ga5d329c284c5ba4b01d7bb252c6e908b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial value of the LFSR test sequence generator.  <a href="#ga5d329c284c5ba4b01d7bb252c6e908b7">More...</a><br /></td></tr>
 <tr class="separator:ga5d329c284c5ba4b01d7bb252c6e908b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,9 +146,6 @@ Macros</h2></td></tr>
 <tr class="memitem:ga63a339ed07aa225c19ddb671ff83bfed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga63a339ed07aa225c19ddb671ff83bfed">XENSIV_BGT60TRXX_RESET_WAIT_TIMEOUT</a>&#160;&#160;&#160;(0xFFFFFFFFU)</td></tr>
 <tr class="memdesc:ga63a339ed07aa225c19ddb671ff83bfed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for wait on software reset done.  <a href="#ga63a339ed07aa225c19ddb671ff83bfed">More...</a><br /></td></tr>
 <tr class="separator:ga63a339ed07aa225c19ddb671ff83bfed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf49a8bb4512220edcd8e4115b4851fa4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaf49a8bb4512220edcd8e4115b4851fa4">XENSIV_BGT60TRXX_FIFO_SIZE_WORDS</a>&#160;&#160;&#160;(8192U)</td></tr>
-<tr class="memdesc:gaf49a8bb4512220edcd8e4115b4851fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">FIFO size.  <a href="#gaf49a8bb4512220edcd8e4115b4851fa4">More...</a><br /></td></tr>
-<tr class="separator:gaf49a8bb4512220edcd8e4115b4851fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac821bbde35122645a10d058655e326f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gac821bbde35122645a10d058655e326f3">XENSIV_BGT60TRXX_REG_MAIN</a>&#160;&#160;&#160;(0x00U)</td></tr>
 <tr class="separator:gac821bbde35122645a10d058655e326f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae463b9df47d008b973c29a0b3536fa27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gae463b9df47d008b973c29a0b3536fa27">XENSIV_BGT60TRXX_REG_ADC0</a>&#160;&#160;&#160;(0x01U)</td></tr>
@@ -311,8 +316,18 @@ Macros</h2></td></tr>
 <tr class="separator:ga902ff35e626b5fd31b96d28de3cd59e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaea164cb900c09d1b0b5262f2600327bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaea164cb900c09d1b0b5262f2600327bd">XENSIV_BGT60TRXX_REG_SDAC_RESULT</a>&#160;&#160;&#160;(0x5eU)</td></tr>
 <tr class="separator:gaea164cb900c09d1b0b5262f2600327bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7e757a58d3de80527851771b223e2c18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga7e757a58d3de80527851771b223e2c18">XENSIV_BGT60TRXX_REG_FSTAT</a>&#160;&#160;&#160;(0x5fU)</td></tr>
-<tr class="separator:ga7e757a58d3de80527851771b223e2c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6685e4e1b6d5aee1e64fd490855d09ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga6685e4e1b6d5aee1e64fd490855d09ed">XENSIV_BGT60TRXX_REG_FSTAT_TR13C</a>&#160;&#160;&#160;(0x5fU)</td></tr>
+<tr class="separator:ga6685e4e1b6d5aee1e64fd490855d09ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaeb83a9203269f43dc87d6ea937f9671"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaaeb83a9203269f43dc87d6ea937f9671">XENSIV_BGT60TRXX_REG_FIFO_TR13C</a>&#160;&#160;&#160;(0x60U)</td></tr>
+<tr class="separator:gaaeb83a9203269f43dc87d6ea937f9671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6d08eb0513af502b7daa9dfa369add3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gad6d08eb0513af502b7daa9dfa369add3">XENSIV_BGT60TRXX_REG_FSTAT_UTR13D</a>&#160;&#160;&#160;(0x5fU)</td></tr>
+<tr class="separator:gad6d08eb0513af502b7daa9dfa369add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga535ad75c3e1db85c7de1449fe2f46adc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga535ad75c3e1db85c7de1449fe2f46adc">XENSIV_BGT60TRXX_REG_FIFO_UTR13D</a>&#160;&#160;&#160;(0x60U)</td></tr>
+<tr class="separator:ga535ad75c3e1db85c7de1449fe2f46adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab734ca7077c226c172b4e042db108fe6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gab734ca7077c226c172b4e042db108fe6">XENSIV_BGT60TRXX_REG_FSTAT_UTR11</a>&#160;&#160;&#160;(0x63U)</td></tr>
+<tr class="separator:gab734ca7077c226c172b4e042db108fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ff80ef7b7ce63010358260d313f1442"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga6ff80ef7b7ce63010358260d313f1442">XENSIV_BGT60TRXX_REG_FIFO_UTR11</a>&#160;&#160;&#160;(0x64U)</td></tr>
+<tr class="separator:ga6ff80ef7b7ce63010358260d313f1442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6273c5f570791a715dd8ec067303d4f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga6273c5f570791a715dd8ec067303d4f7">XENSIV_BGT60TRXX_REG_MAIN_FRAME_START_POS</a>&#160;&#160;&#160;(0)</td></tr>
 <tr class="separator:ga6273c5f570791a715dd8ec067303d4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac16d0abc3b0cc69569af51d6428c82b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gac16d0abc3b0cc69569af51d6428c82b0">XENSIV_BGT60TRXX_REG_MAIN_FRAME_START_MSK</a>&#160;&#160;&#160;(0x000001UL)</td></tr>
@@ -426,12 +441,6 @@ Macros</h2></td></tr>
 <tr class="memitem:gaa29465456a5518e414b0cd25be02a0a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaa29465456a5518e414b0cd25be02a0a4">XENSIV_BGT60TRXX_REG_GSR0_CLK_NUM_ERR_MSK</a>&#160;&#160;&#160;(0x08UL)</td></tr>
 <tr class="separator:gaa29465456a5518e414b0cd25be02a0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ga1497e5f5fd6b70cf8bf94eeeed1d50ec"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a></td></tr>
-<tr class="memdesc:ga1497e5f5fd6b70cf8bf94eeeed1d50ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to the XENSIV(TM) BGT60TRxx sensor device object.  <a href="#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">More...</a><br /></td></tr>
-<tr class="separator:ga1497e5f5fd6b70cf8bf94eeeed1d50ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:ga4d40b7b68618e77a9d244dfa510b0fff"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga4d40b7b68618e77a9d244dfa510b0fff">xensiv_bgt60trxx_reset_t</a> { <br />
@@ -442,42 +451,102 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="group__group__board__libs.html#gga4d40b7b68618e77a9d244dfa510b0fffa01e58d3df6628fd9f2946e0b125d4fc0">XENSIV_BGT60TRXX_RESET_FIFO</a> = 0x4 &lt;&lt; XENSIV_BGT60TRXX_REG_MAIN_RESET_POS
 <br />
  }</td></tr>
-<tr class="memdesc:ga4d40b7b68618e77a9d244dfa510b0fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum defining the different reset commands  <a href="group__group__board__libs.html#ga4d40b7b68618e77a9d244dfa510b0fff">More...</a><br /></td></tr>
+<tr class="memdesc:ga4d40b7b68618e77a9d244dfa510b0fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum defining the different reset commands passed to <a class="el" href="group__group__board__libs.html#ga260db1f63b5b513c3930c07532cf1b9c">xensiv_bgt60trxx_soft_reset()</a>  <a href="group__group__board__libs.html#ga4d40b7b68618e77a9d244dfa510b0fff">More...</a><br /></td></tr>
 <tr class="separator:ga4d40b7b68618e77a9d244dfa510b0fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa8186f76a475c78514b0d6964403283"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaaa8186f76a475c78514b0d6964403283">xensiv_bgt60trxx_device_t</a> { <br />
+&#160;&#160;<a class="el" href="group__group__board__libs.html#ggaaa8186f76a475c78514b0d6964403283aad7e421ee7caeaefd0613f435ccec20d">XENSIV_DEVICE_BGT60TR13C</a> = 0, 
+<br />
+&#160;&#160;<a class="el" href="group__group__board__libs.html#ggaaa8186f76a475c78514b0d6964403283a604d89f2bb88fd3bea2a5d2cf0e86537">XENSIV_DEVICE_BGT60UTR13D</a> = 1, 
+<br />
+&#160;&#160;<a class="el" href="group__group__board__libs.html#ggaaa8186f76a475c78514b0d6964403283ae570fa9629f38058e998939b1b9f3aba">XENSIV_DEVICE_BGT60UTR11</a> = 2, 
+<br />
+&#160;&#160;<a class="el" href="group__group__board__libs.html#ggaaa8186f76a475c78514b0d6964403283a74ea8f5c44548d94c2f75765451fa864">XENSIV_DEVICE_UNKNOWN</a> = -1
+<br />
+ }</td></tr>
+<tr class="memdesc:gaaa8186f76a475c78514b0d6964403283"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum with supported devices  <a href="group__group__board__libs.html#gaaa8186f76a475c78514b0d6964403283">More...</a><br /></td></tr>
+<tr class="separator:gaaa8186f76a475c78514b0d6964403283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaa9ebfaddf1aeded98dd4eab69999c7fe"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaa9ebfaddf1aeded98dd4eab69999c7fe">xensiv_bgt60trxx_init</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, const uint32_t *regs, uint32_t len)</td></tr>
-<tr class="memdesc:gaa9ebfaddf1aeded98dd4eab69999c7fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the XENSIV(TM) BGT60TRxx radar sensor device.  <a href="#gaa9ebfaddf1aeded98dd4eab69999c7fe">More...</a><br /></td></tr>
-<tr class="separator:gaa9ebfaddf1aeded98dd4eab69999c7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3161d5dc9d8c5f2820f4d81d492ceffd"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga3161d5dc9d8c5f2820f4d81d492ceffd">xensiv_bgt60trxx_set_reg</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, uint32_t reg_addr, uint32_t data)</td></tr>
-<tr class="memdesc:ga3161d5dc9d8c5f2820f4d81d492ceffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given data buffer into the sensor device.  <a href="#ga3161d5dc9d8c5f2820f4d81d492ceffd">More...</a><br /></td></tr>
-<tr class="separator:ga3161d5dc9d8c5f2820f4d81d492ceffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga24d849b42e613c578c8ce14835d93880"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga24d849b42e613c578c8ce14835d93880">xensiv_bgt60trxx_get_reg</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, uint32_t reg_addr, uint32_t *data)</td></tr>
-<tr class="memdesc:ga24d849b42e613c578c8ce14835d93880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from the sensor device into the given data buffer.  <a href="#ga24d849b42e613c578c8ce14835d93880">More...</a><br /></td></tr>
-<tr class="separator:ga24d849b42e613c578c8ce14835d93880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa5f83dc7e0fd96d975d4608ae7ca63bc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaa5f83dc7e0fd96d975d4608ae7ca63bc">xensiv_bgt60trxx_get_fifo_status</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, uint32_t *status)</td></tr>
-<tr class="memdesc:gaa5f83dc7e0fd96d975d4608ae7ca63bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the sensor device FIFO status.  <a href="#gaa5f83dc7e0fd96d975d4608ae7ca63bc">More...</a><br /></td></tr>
-<tr class="separator:gaa5f83dc7e0fd96d975d4608ae7ca63bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5cf51e8ad8d1f557cacda28922a45955"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga5cf51e8ad8d1f557cacda28922a45955">xensiv_bgt60trxx_set_fifo_limit</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, uint16_t limit)</td></tr>
-<tr class="memdesc:ga5cf51e8ad8d1f557cacda28922a45955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the FIFO compare reference value.  <a href="#ga5cf51e8ad8d1f557cacda28922a45955">More...</a><br /></td></tr>
-<tr class="separator:ga5cf51e8ad8d1f557cacda28922a45955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga641c6511639c49fe9a90cd3635ebdf50"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga641c6511639c49fe9a90cd3635ebdf50">xensiv_bgt60trxx_get_fifo_data</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, uint8_t *data, uint32_t len)</td></tr>
-<tr class="memdesc:ga641c6511639c49fe9a90cd3635ebdf50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from the sensor device FIFO into the given data buffer.  <a href="#ga641c6511639c49fe9a90cd3635ebdf50">More...</a><br /></td></tr>
-<tr class="separator:ga641c6511639c49fe9a90cd3635ebdf50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4bf5c3c01bc7a8c5021c0e05c51346f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gae4bf5c3c01bc7a8c5021c0e05c51346f">xensiv_bgt60trxx_start_frame</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, bool start)</td></tr>
-<tr class="memdesc:gae4bf5c3c01bc7a8c5021c0e05c51346f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts/stops radar frame generation.  <a href="#gae4bf5c3c01bc7a8c5021c0e05c51346f">More...</a><br /></td></tr>
-<tr class="separator:gae4bf5c3c01bc7a8c5021c0e05c51346f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga595aa8d83d0be17458001ef3e3d64b86"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga595aa8d83d0be17458001ef3e3d64b86">xensiv_bgt60trxx_soft_reset</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, <a class="el" href="group__group__board__libs.html#ga4d40b7b68618e77a9d244dfa510b0fff">xensiv_bgt60trxx_reset_t</a> reset_type)</td></tr>
-<tr class="memdesc:ga595aa8d83d0be17458001ef3e3d64b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a soft reset of the sensor device.  <a href="#ga595aa8d83d0be17458001ef3e3d64b86">More...</a><br /></td></tr>
-<tr class="separator:ga595aa8d83d0be17458001ef3e3d64b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga267a2b5114bf42df2da435506c5cc379"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga267a2b5114bf42df2da435506c5cc379">xensiv_bgt60trxx_enable_data_test_mode</a> (<a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a> dev, bool enable)</td></tr>
-<tr class="memdesc:ga267a2b5114bf42df2da435506c5cc379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables/disables generation of a test sequence out of FIFO.  <a href="#ga267a2b5114bf42df2da435506c5cc379">More...</a><br /></td></tr>
-<tr class="separator:ga267a2b5114bf42df2da435506c5cc379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06da26cd47b2fe8d8e68d64de1b80c95"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga06da26cd47b2fe8d8e68d64de1b80c95">xensiv_bgt60trxx_init</a> (<a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, void *iface, bool high_speed)</td></tr>
+<tr class="memdesc:ga06da26cd47b2fe8d8e68d64de1b80c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the XENSIV(TM) BGT60TRxx radar sensor device.  <a href="#ga06da26cd47b2fe8d8e68d64de1b80c95">More...</a><br /></td></tr>
+<tr class="separator:ga06da26cd47b2fe8d8e68d64de1b80c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae77c839f3d48b082b3e646fe860822ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__board__libs.html#gaaa8186f76a475c78514b0d6964403283">xensiv_bgt60trxx_device_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gae77c839f3d48b082b3e646fe860822ab">xensiv_bgt60trxx_get_device</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev)</td></tr>
+<tr class="memdesc:gae77c839f3d48b082b3e646fe860822ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the detected sensor device name.  <a href="#gae77c839f3d48b082b3e646fe860822ab">More...</a><br /></td></tr>
+<tr class="separator:gae77c839f3d48b082b3e646fe860822ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga262cf75127f4bc708e5e9863483f68ab"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga262cf75127f4bc708e5e9863483f68ab">xensiv_bgt60trxx_config</a> (<a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, const uint32_t *regs, uint32_t len)</td></tr>
+<tr class="memdesc:ga262cf75127f4bc708e5e9863483f68ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the XENSIV(TM) BGT60TRxx radar sensor device.  <a href="#ga262cf75127f4bc708e5e9863483f68ab">More...</a><br /></td></tr>
+<tr class="separator:ga262cf75127f4bc708e5e9863483f68ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d48941fc5850768c1fa79e4a9b541ac"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga1d48941fc5850768c1fa79e4a9b541ac">xensiv_bgt60trxx_set_reg</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, uint32_t reg_addr, uint32_t data)</td></tr>
+<tr class="memdesc:ga1d48941fc5850768c1fa79e4a9b541ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given data buffer into the sensor device.  <a href="#ga1d48941fc5850768c1fa79e4a9b541ac">More...</a><br /></td></tr>
+<tr class="separator:ga1d48941fc5850768c1fa79e4a9b541ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71553ceb326e401b1145dcc8e6dcf1f4"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga71553ceb326e401b1145dcc8e6dcf1f4">xensiv_bgt60trxx_get_reg</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, uint32_t reg_addr, uint32_t *data)</td></tr>
+<tr class="memdesc:ga71553ceb326e401b1145dcc8e6dcf1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from the sensor device into the given data buffer.  <a href="#ga71553ceb326e401b1145dcc8e6dcf1f4">More...</a><br /></td></tr>
+<tr class="separator:ga71553ceb326e401b1145dcc8e6dcf1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad52f48f9a817c52cea3f84ac438aee84"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gad52f48f9a817c52cea3f84ac438aee84">xensiv_bgt60trxx_get_fifo_size</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev)</td></tr>
+<tr class="memdesc:gad52f48f9a817c52cea3f84ac438aee84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the sensor device FIFO size.  <a href="#gad52f48f9a817c52cea3f84ac438aee84">More...</a><br /></td></tr>
+<tr class="separator:gad52f48f9a817c52cea3f84ac438aee84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadec9ab0f566e11b490d7885b844c8759"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gadec9ab0f566e11b490d7885b844c8759">xensiv_bgt60trxx_get_fifo_status</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, uint32_t *status)</td></tr>
+<tr class="memdesc:gadec9ab0f566e11b490d7885b844c8759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the sensor device FIFO status.  <a href="#gadec9ab0f566e11b490d7885b844c8759">More...</a><br /></td></tr>
+<tr class="separator:gadec9ab0f566e11b490d7885b844c8759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8d0e9ff1e0efc309d57b8d7f8f369a2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gab8d0e9ff1e0efc309d57b8d7f8f369a2">xensiv_bgt60trxx_set_fifo_limit</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, uint32_t num_samples)</td></tr>
+<tr class="memdesc:gab8d0e9ff1e0efc309d57b8d7f8f369a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the FIFO compare reference value.  <a href="#gab8d0e9ff1e0efc309d57b8d7f8f369a2">More...</a><br /></td></tr>
+<tr class="separator:gab8d0e9ff1e0efc309d57b8d7f8f369a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d708331d9197ff42e0d52467286671a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga4d708331d9197ff42e0d52467286671a">xensiv_bgt60trxx_get_fifo_data</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, uint16_t *data, uint32_t num_samples)</td></tr>
+<tr class="memdesc:ga4d708331d9197ff42e0d52467286671a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from the sensor device FIFO into the given data buffer.  <a href="#ga4d708331d9197ff42e0d52467286671a">More...</a><br /></td></tr>
+<tr class="separator:ga4d708331d9197ff42e0d52467286671a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb2a8c0c778c01d48c7a5069bb83b1e2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gaeb2a8c0c778c01d48c7a5069bb83b1e2">xensiv_bgt60trxx_start_frame</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, bool start)</td></tr>
+<tr class="memdesc:gaeb2a8c0c778c01d48c7a5069bb83b1e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts/stops radar frame generation.  <a href="#gaeb2a8c0c778c01d48c7a5069bb83b1e2">More...</a><br /></td></tr>
+<tr class="separator:gaeb2a8c0c778c01d48c7a5069bb83b1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga260db1f63b5b513c3930c07532cf1b9c"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga260db1f63b5b513c3930c07532cf1b9c">xensiv_bgt60trxx_soft_reset</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, <a class="el" href="group__group__board__libs.html#ga4d40b7b68618e77a9d244dfa510b0fff">xensiv_bgt60trxx_reset_t</a> reset_type)</td></tr>
+<tr class="memdesc:ga260db1f63b5b513c3930c07532cf1b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a soft reset of the sensor device.  <a href="#ga260db1f63b5b513c3930c07532cf1b9c">More...</a><br /></td></tr>
+<tr class="separator:ga260db1f63b5b513c3930c07532cf1b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacab28d709bbbead760801d3373bcef21"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gacab28d709bbbead760801d3373bcef21">xensiv_bgt60trxx_enable_data_test_mode</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev, bool enable)</td></tr>
+<tr class="memdesc:gacab28d709bbbead760801d3373bcef21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables/disables generation of a test sequence out of FIFO.  <a href="#gacab28d709bbbead760801d3373bcef21">More...</a><br /></td></tr>
+<tr class="separator:gacab28d709bbbead760801d3373bcef21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99eb28655f114d8661007f16670823df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga99eb28655f114d8661007f16670823df">xensiv_bgt60trxx_hard_reset</a> (const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *dev)</td></tr>
+<tr class="memdesc:ga99eb28655f114d8661007f16670823df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a hard reset of the sensor device.  <a href="#ga99eb28655f114d8661007f16670823df">More...</a><br /></td></tr>
+<tr class="separator:ga99eb28655f114d8661007f16670823df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafbe627c4a4096fc1e94328acf06bafa0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gafbe627c4a4096fc1e94328acf06bafa0">xensiv_bgt60trxx_get_next_test_word</a> (uint16_t cur_test_word)</td></tr>
 <tr class="memdesc:gafbe627c4a4096fc1e94328acf06bafa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function that generates test sequence data that can be used to compare against the FIFO data obtained from device sensor when data test mode is enabled.  <a href="#gafbe627c4a4096fc1e94328acf06bafa0">More...</a><br /></td></tr>
 <tr class="separator:gafbe627c4a4096fc1e94328acf06bafa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structxensiv__bgt60trxx__t" id="structxensiv__bgt60trxx__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structxensiv__bgt60trxx__t">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct xensiv_bgt60trxx_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a73954c54f8d805f882d821c9a6fa2783"></a>void *</td>
+<td class="fieldname">
+iface</td>
+<td class="fielddoc">
+Pointer to platform-specific SPI interface object provided to the xensiv_bgt60trxx_platform_spi_transfer function. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0a49d57f0cbac9cf3c0fc8a2087a9337"></a>const struct xensiv_bgt60trxx_type *</td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+Device type detected during initialization. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9cf08c6300a6e1cdeb78a785c13d69b1"></a>bool</td>
+<td class="fieldname">
+high_speed</td>
+<td class="fielddoc">
+SPI speed mode. </td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga754adc18368d63b331a2c9cbeff0f763"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga754adc18368d63b331a2c9cbeff0f763">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_STATUS_OK</h2>
@@ -495,14 +564,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga469aebfaf7f4f241360b66dc9a23cd64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga469aebfaf7f4f241360b66dc9a23cd64">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_STATUS_SPI_ERROR</h2>
+<a id="ga26bf1e1d87ead531ca95a8d96c0199ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga26bf1e1d87ead531ca95a8d96c0199ef">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_STATUS_COM_ERROR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XENSIV_BGT60TRXX_STATUS_SPI_ERROR&#160;&#160;&#160;(1)</td>
+          <td class="memname">#define XENSIV_BGT60TRXX_STATUS_COM_ERROR&#160;&#160;&#160;(1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -511,14 +580,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga8e6a506054d4db054889e8ad5a3224b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8e6a506054d4db054889e8ad5a3224b5">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_STATUS_CHIPID_ERROR</h2>
+<a id="gaaa9a9977b6a50c1a9f275427f292add8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa9a9977b6a50c1a9f275427f292add8">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_STATUS_DEV_ERROR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XENSIV_BGT60TRXX_STATUS_CHIPID_ERROR&#160;&#160;&#160;(2)</td>
+          <td class="memname">#define XENSIV_BGT60TRXX_STATUS_DEV_ERROR&#160;&#160;&#160;(2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -539,7 +608,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Result code indicating a timeout waiting for reset completion. </p>
+<p>Result code indicating an operation timeout error. </p>
+
+</div>
+</div>
+<a id="ga621827564508451ebd8bd855358dea80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga621827564508451ebd8bd855358dea80">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_STATUS_GSR0_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XENSIV_BGT60TRXX_STATUS_GSR0_ERROR&#160;&#160;&#160;(4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Result code indicating that an error occurred while reading from FIFO. </p>
 
 </div>
 </div>
@@ -620,22 +705,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Timeout for wait on software reset done. </p>
-
-</div>
-</div>
-<a id="gaf49a8bb4512220edcd8e4115b4851fa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf49a8bb4512220edcd8e4115b4851fa4">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_FIFO_SIZE_WORDS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define XENSIV_BGT60TRXX_FIFO_SIZE_WORDS&#160;&#160;&#160;(8192U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>FIFO size. </p>
 
 </div>
 </div>
@@ -1914,18 +1983,93 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga7e757a58d3de80527851771b223e2c18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7e757a58d3de80527851771b223e2c18">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FSTAT</h2>
+<a id="ga6685e4e1b6d5aee1e64fd490855d09ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6685e4e1b6d5aee1e64fd490855d09ed">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FSTAT_TR13C</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XENSIV_BGT60TRXX_REG_FSTAT&#160;&#160;&#160;(0x5fU)</td>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FSTAT_TR13C&#160;&#160;&#160;(0x5fU)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REG_FSTAT: addr </p>
+<p>TR13C REG_FSTAT: addr </p>
+
+</div>
+</div>
+<a id="gaaeb83a9203269f43dc87d6ea937f9671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaeb83a9203269f43dc87d6ea937f9671">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FIFO_TR13C</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FIFO_TR13C&#160;&#160;&#160;(0x60U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>TR13C REG_FIFO: addr </p>
+
+</div>
+</div>
+<a id="gad6d08eb0513af502b7daa9dfa369add3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6d08eb0513af502b7daa9dfa369add3">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FSTAT_UTR13D</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FSTAT_UTR13D&#160;&#160;&#160;(0x5fU)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UTR13D REG_FSTAT: addr </p>
+
+</div>
+</div>
+<a id="ga535ad75c3e1db85c7de1449fe2f46adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga535ad75c3e1db85c7de1449fe2f46adc">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FIFO_UTR13D</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FIFO_UTR13D&#160;&#160;&#160;(0x60U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UTR13D REG_FIFO: addr </p>
+
+</div>
+</div>
+<a id="gab734ca7077c226c172b4e042db108fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab734ca7077c226c172b4e042db108fe6">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FSTAT_UTR11</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FSTAT_UTR11&#160;&#160;&#160;(0x63U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UTR11 REG_FSTAT: addr </p>
+
+</div>
+</div>
+<a id="ga6ff80ef7b7ce63010358260d313f1442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ff80ef7b7ce63010358260d313f1442">&#9670;&nbsp;</a></span>XENSIV_BGT60TRXX_REG_FIFO_UTR11</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FIFO_UTR11&#160;&#160;&#160;(0x64U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UTR11: REG_FIFO: addr </p>
 
 </div>
 </div>
@@ -2769,24 +2913,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="ga1497e5f5fd6b70cf8bf94eeeed1d50ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void* <a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </p>
-<p>Used to communicate with the sensor over SPI. Typically, a pointer to the platform-specific SPI object. See the example usage in xensiv_bgt60trxx_mtb.c. </p>
-
-</div>
-</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ga4d40b7b68618e77a9d244dfa510b0fff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga4d40b7b68618e77a9d244dfa510b0fff">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_reset_t</h2>
@@ -2800,21 +2926,47 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>enum defining the different reset commands </p>
+<p>enum defining the different reset commands passed to <a class="el" href="group__group__board__libs.html#ga260db1f63b5b513c3930c07532cf1b9c">xensiv_bgt60trxx_soft_reset()</a> </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4d40b7b68618e77a9d244dfa510b0fffac0cf9c4e8ce94ae66761c0c9bdd2de77"></a>XENSIV_BGT60TRXX_RESET_SW&#160;</td><td class="fielddoc"><p>Software reset. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4d40b7b68618e77a9d244dfa510b0fffac0cf9c4e8ce94ae66761c0c9bdd2de77"></a>XENSIV_BGT60TRXX_RESET_SW&#160;</td><td class="fielddoc"><p>Software reset. Resets all registers to default state. Resets all internal counters (e.g. shape, frame). Perform FIFO reset. Perform FSM reset </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga4d40b7b68618e77a9d244dfa510b0fffa45c63a865ef945c23bb2674b5c978810"></a>XENSIV_BGT60TRXX_RESET_FSM&#160;</td><td class="fielddoc"><p>FSM reset. </p>
+<tr><td class="fieldname"><a id="gga4d40b7b68618e77a9d244dfa510b0fffa45c63a865ef945c23bb2674b5c978810"></a>XENSIV_BGT60TRXX_RESET_FSM&#160;</td><td class="fielddoc"><p>FSM reset. Resets FSM to deep sleep mode. Resets FSM internal counters for channel/shape set and timers </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga4d40b7b68618e77a9d244dfa510b0fffa01e58d3df6628fd9f2946e0b125d4fc0"></a>XENSIV_BGT60TRXX_RESET_FIFO&#160;</td><td class="fielddoc"><p>FIFO reset. </p>
+<tr><td class="fieldname"><a id="gga4d40b7b68618e77a9d244dfa510b0fffa01e58d3df6628fd9f2946e0b125d4fc0"></a>XENSIV_BGT60TRXX_RESET_FIFO&#160;</td><td class="fielddoc"><p>FIFO reset. Reset the read and write pointers of the FIFO. Perform an implicit FSM reset </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaaa8186f76a475c78514b0d6964403283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa8186f76a475c78514b0d6964403283">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_device_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group__group__board__libs.html#gaaa8186f76a475c78514b0d6964403283">xensiv_bgt60trxx_device_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enum with supported devices </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaaa8186f76a475c78514b0d6964403283aad7e421ee7caeaefd0613f435ccec20d"></a>XENSIV_DEVICE_BGT60TR13C&#160;</td><td class="fielddoc"><p>BGT60TR13C. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaa8186f76a475c78514b0d6964403283a604d89f2bb88fd3bea2a5d2cf0e86537"></a>XENSIV_DEVICE_BGT60UTR13D&#160;</td><td class="fielddoc"><p>BGT60UTR13D. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaa8186f76a475c78514b0d6964403283ae570fa9629f38058e998939b1b9f3aba"></a>XENSIV_DEVICE_BGT60UTR11&#160;</td><td class="fielddoc"><p>BGT60UTR11. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaa8186f76a475c78514b0d6964403283a74ea8f5c44548d94c2f75765451fa864"></a>XENSIV_DEVICE_UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown not supported device. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaa9ebfaddf1aeded98dd4eab69999c7fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa9ebfaddf1aeded98dd4eab69999c7fe">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_init()</h2>
+<a id="ga06da26cd47b2fe8d8e68d64de1b80c95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06da26cd47b2fe8d8e68d64de1b80c95">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2822,7 +2974,80 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
+          <td class="paramname"><em>dev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>high_speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the XENSIV(TM) BGT60TRxx radar sensor device. </p>
+<p>It checks the integrity of the serial communication interface. Detects and identify the connected radar sensor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. The caller must allocate the memory for this object but the init function will initialize its contents. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iface</td><td>Pointer to the interface object used to communicate with the sensor over SPI. Typically, a pointer to the platform-specific SPI interface object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">high_speed</td><td>The XENSIV(TM) BGT60TRxx sensor offers an additional high speed mode which increase the timing budget on SPI master side by sending out data via DO with the rising edge instead of the falling edge of the CLK. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if the initialization was successful; else an error indicating what went wrong. </dd></dl>
+
+</div>
+</div>
+<a id="gae77c839f3d48b082b3e646fe860822ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae77c839f3d48b082b3e646fe860822ab">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_device()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__group__board__libs.html#gaaa8186f76a475c78514b0d6964403283">xensiv_bgt60trxx_device_t</a> xensiv_bgt60trxx_get_device </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
+          <td class="paramname"><em>dev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtains the detected sensor device name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sensor device name. </dd></dl>
+
+</div>
+</div>
+<a id="ga262cf75127f4bc708e5e9863483f68ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga262cf75127f4bc708e5e9863483f68ab">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t xensiv_bgt60trxx_config </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -2845,11 +3070,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the XENSIV(TM) BGT60TRxx radar sensor device. </p>
-<p>It checks the integrity of the communication layer of the serial communication interface. It applies the sensor configurator given in the regs array that can be generated using the BGT60TRxx configurator tool.</p>
+<p>Configures the XENSIV(TM) BGT60TRxx radar sensor device. </p>
+<p>It performs a SW reset and applies the sensor configurator given in the regs array The register configuration can be generated using the BGT60TRxx configurator tool.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">regs</td><td>Pointer to the configuration registers list. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of the configuration registers list. </td></tr>
   </table>
@@ -2859,8 +3084,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga3161d5dc9d8c5f2820f4d81d492ceffd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3161d5dc9d8c5f2820f4d81d492ceffd">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_set_reg()</h2>
+<a id="ga1d48941fc5850768c1fa79e4a9b541ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d48941fc5850768c1fa79e4a9b541ac">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_set_reg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2868,7 +3093,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_set_reg </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -2895,7 +3120,7 @@ Functions</h2></td></tr>
 <p>Writes the given data buffer to the sensor register map starting at the register address.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">reg_addr</td><td>Register address. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Data to be written in the sensor register. </td></tr>
   </table>
@@ -2905,8 +3130,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga24d849b42e613c578c8ce14835d93880"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga24d849b42e613c578c8ce14835d93880">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_reg()</h2>
+<a id="ga71553ceb326e401b1145dcc8e6dcf1f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga71553ceb326e401b1145dcc8e6dcf1f4">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_reg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2914,7 +3139,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_get_reg </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -2941,7 +3166,7 @@ Functions</h2></td></tr>
 <p>Reads from the sensor register map sensor starting at register address into the given data buffer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">reg_addr</td><td>Register address. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Data to be written in the sensor register. </td></tr>
   </table>
@@ -2951,8 +3176,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa5f83dc7e0fd96d975d4608ae7ca63bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa5f83dc7e0fd96d975d4608ae7ca63bc">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_fifo_status()</h2>
+<a id="gad52f48f9a817c52cea3f84ac438aee84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad52f48f9a817c52cea3f84ac438aee84">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_fifo_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t xensiv_bgt60trxx_get_fifo_size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
+          <td class="paramname"><em>dev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtains the sensor device FIFO size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>FIFO size. </dd></dl>
+
+</div>
+</div>
+<a id="gadec9ab0f566e11b490d7885b844c8759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadec9ab0f566e11b490d7885b844c8759">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_fifo_status()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2960,7 +3212,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_get_fifo_status </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -2980,7 +3232,7 @@ Functions</h2></td></tr>
 <p>Obtains the sensor device FIFO status. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Pointer to populate with FIFO status. </td></tr>
   </table>
   </dd>
@@ -2989,8 +3241,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga5cf51e8ad8d1f557cacda28922a45955"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5cf51e8ad8d1f557cacda28922a45955">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_set_fifo_limit()</h2>
+<a id="gab8d0e9ff1e0efc309d57b8d7f8f369a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab8d0e9ff1e0efc309d57b8d7f8f369a2">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_set_fifo_limit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2998,14 +3250,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_set_fifo_limit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>limit</em>&#160;</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>num_samples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3019,18 +3271,18 @@ Functions</h2></td></tr>
 <p>The beat signal signal is sampled, digitized, and stored into the sensor FIFO. When the filling level is greater than the FIFO compare reference (CREF), an interrupt is issued, indicating to the controlling processor the availability of at least CREF samples in the FIFO.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">limit</td><td>FIFO compare reference. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num_samples</td><td>Number of samples stored in FIFO to trigger interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Each FIFO word contains two samples, each of 12 bits. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Should be an even number </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if setting the new FIFO limit was successful; else an error indicating what went wrong. </dd></dl>
 
 </div>
 </div>
-<a id="ga641c6511639c49fe9a90cd3635ebdf50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga641c6511639c49fe9a90cd3635ebdf50">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_fifo_data()</h2>
+<a id="ga4d708331d9197ff42e0d52467286671a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d708331d9197ff42e0d52467286671a">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_get_fifo_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3038,20 +3290,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_get_fifo_data </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramtype">uint16_t *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
+          <td class="paramname"><em>num_samples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3062,22 +3314,21 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reads from the sensor device FIFO into the given data buffer. </p>
-<p>The beat signal is sampled, digitized, and stored into the sensor FIFO. This function reads out the sensor FIFO contents and places it in the given buffer. The SPI burst read consists of a 4-byte header + (len * XENSIV_BGT60TRXX_FIFO_WORD_SIZE_BYTES). The 4-byte header consists of the status register GSR0 (four 1B bits + four status bits) followed by 24 padding bits set to 0B.</p>
+<p>The beat signal is sampled, digitized, and stored into the sensor FIFO. This function reads out the sensor FIFO contents and places it in the given buffer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Pointer to a data buffer of size 4 + (len * XENSIV_BGT60TRXX_FIFO_WORD_SIZE_BYTES) to store the FIFO values from the sensor. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of FIFO words to read from the sensor. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Pointer to a data buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num_samples</td><td>Number of samples to read from the sensor. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Each FIFO word contains two samples, each of 12 bits. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if reading from the FIFO was successful; else an error indicating what went wrong. </dd></dl>
 
 </div>
 </div>
-<a id="gae4bf5c3c01bc7a8c5021c0e05c51346f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae4bf5c3c01bc7a8c5021c0e05c51346f">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_start_frame()</h2>
+<a id="gaeb2a8c0c778c01d48c7a5069bb83b1e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb2a8c0c778c01d48c7a5069bb83b1e2">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_start_frame()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3085,7 +3336,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_start_frame </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -3105,7 +3356,7 @@ Functions</h2></td></tr>
 <p>Starts/stops radar frame generation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>Starts/stops control of frames. </td></tr>
   </table>
   </dd>
@@ -3114,8 +3365,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga595aa8d83d0be17458001ef3e3d64b86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga595aa8d83d0be17458001ef3e3d64b86">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_soft_reset()</h2>
+<a id="ga260db1f63b5b513c3930c07532cf1b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga260db1f63b5b513c3930c07532cf1b9c">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_soft_reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3123,7 +3374,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_soft_reset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -3143,8 +3394,8 @@ Functions</h2></td></tr>
 <p>Triggers a soft reset of the sensor device. </p>
 <p>Triggers reset and waits for reset done. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">reset_type</td><td>Reset type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reset_type</td><td>Reset type, combination of . </td></tr>
   </table>
   </dd>
 </dl>
@@ -3152,8 +3403,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga267a2b5114bf42df2da435506c5cc379"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga267a2b5114bf42df2da435506c5cc379">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_enable_data_test_mode()</h2>
+<a id="gacab28d709bbbead760801d3373bcef21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacab28d709bbbead760801d3373bcef21">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_enable_data_test_mode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3161,7 +3412,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int32_t xensiv_bgt60trxx_enable_data_test_mode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga1497e5f5fd6b70cf8bf94eeeed1d50ec">xensiv_bgt60trxx_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
           <td class="paramname"><em>dev</em>, </td>
         </tr>
         <tr>
@@ -3182,12 +3433,38 @@ Functions</h2></td></tr>
 <p>Enables/disables the output of test sequence data instead of the ADC data for the first ADC channel. This can be used to check data from the radar sensor FIFO against a defined bit sequence. </p><dl class="section note"><dt>Note</dt><dd>ADC Channel 1 need to be enabled in the BGT60TRxx configuration.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Handle to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>Enable/disable the output of the test sequence data. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if enabling the data testomode was successful; else an error indicating what went wrong. </dd></dl>
+
+</div>
+</div>
+<a id="ga99eb28655f114d8661007f16670823df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99eb28655f114d8661007f16670823df">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_hard_reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xensiv_bgt60trxx_hard_reset </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__group__board__libs.html#structxensiv__bgt60trxx__t">xensiv_bgt60trxx_t</a> *&#160;</td>
+          <td class="paramname"><em>dev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a hard reset of the sensor device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -1,6 +1,4 @@
-# XENSIV™ BGT60TRxx radar sensor library release notes
-
-**Note:** This is Early Access Software for XENSIV™ BGT60TRxx 60GHz FMCW radar sensors in ModusToolbox. This software is made available for evaluation purposes only and is not recommended for production development.
+# XENSIV™ BGT60TRxx Radar Sensor Release Notes
 
 This library provides functions for interfacing with the XENSIV™ BGT60TRxx 60GHz FMCW radar sensors.
 
@@ -12,6 +10,11 @@ This library provides functions for interfacing with the XENSIV™ BGT60TRxx 60G
 - APIs for reading the sensor data
 
 ## What Changed?
+### v1.0.0
+
+- Initial production release
+- Supported sensors: XENSIV™ BGT60UTR13D, XENSIV™ BGT60UTR11
+
 ### v0.6.3
 
 - Fixed README.md code snippet issues
@@ -33,12 +36,6 @@ This version of the XENSIV™ BGT60TRxx 60GHz FMCW radar sensor library was vali
 | Arm&reg; compiler 6                            | 6.13    |
 
 Minimum required ModusToolbox&trade; software environment: v2.2
-
-## Known Issues
-
-| Problem | Workaround |
-| ------- | ---------- |
-| SPI transfer might stop for IAR debug build. | None. |
 
 ## More information
 

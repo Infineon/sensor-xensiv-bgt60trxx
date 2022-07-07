@@ -98,9 +98,18 @@ $(document).ready(function(){initNavTree('group__group__board__libs__platform.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga07e4b7f7bcf7d66905426bc71297c8c4"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs__platform.html#ga07e4b7f7bcf7d66905426bc71297c8c4">xensiv_bgt60trxx_platform_spi_transfer</a> (void *dev, const uint8_t *tx_data, uint32_t tx_len, uint8_t *rx_data, uint32_t rx_len)</td></tr>
-<tr class="memdesc:ga07e4b7f7bcf7d66905426bc71297c8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-specific function that performs an SPI transfer.  <a href="#ga07e4b7f7bcf7d66905426bc71297c8c4">More...</a><br /></td></tr>
-<tr class="separator:ga07e4b7f7bcf7d66905426bc71297c8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c5f00a92e444d6bbbc03c50b04364e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs__platform.html#ga0c5f00a92e444d6bbbc03c50b04364e3">xensiv_bgt60trxx_platform_rst_set</a> (const void *iface, bool val)</td></tr>
+<tr class="memdesc:ga0c5f00a92e444d6bbbc03c50b04364e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-specific function that sets the output value of the RST pin.  <a href="#ga0c5f00a92e444d6bbbc03c50b04364e3">More...</a><br /></td></tr>
+<tr class="separator:ga0c5f00a92e444d6bbbc03c50b04364e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9261e372ab9abe26b57a11be781e36f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs__platform.html#gaa9261e372ab9abe26b57a11be781e36f">xensiv_bgt60trxx_platform_spi_cs_set</a> (const void *iface, bool val)</td></tr>
+<tr class="memdesc:gaa9261e372ab9abe26b57a11be781e36f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-specific function that that sets the output value of the SPI CS pin.  <a href="#gaa9261e372ab9abe26b57a11be781e36f">More...</a><br /></td></tr>
+<tr class="separator:gaa9261e372ab9abe26b57a11be781e36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48f90398b13d55e3d7776fffdeacd898"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs__platform.html#ga48f90398b13d55e3d7776fffdeacd898">xensiv_bgt60trxx_platform_spi_transfer</a> (void *iface, uint8_t *tx_data, uint8_t *rx_data, uint32_t len)</td></tr>
+<tr class="memdesc:ga48f90398b13d55e3d7776fffdeacd898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-specific function that performs a SPI write/read transfer to the register file of the sensor.  <a href="#ga48f90398b13d55e3d7776fffdeacd898">More...</a><br /></td></tr>
+<tr class="separator:ga48f90398b13d55e3d7776fffdeacd898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga932fe85ad023a10adb9d7a1e2b5473dc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs__platform.html#ga932fe85ad023a10adb9d7a1e2b5473dc">xensiv_bgt60trxx_platform_spi_fifo_read</a> (void *iface, uint16_t *rx_data, uint32_t len)</td></tr>
+<tr class="memdesc:ga932fe85ad023a10adb9d7a1e2b5473dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-specific function that performs a SPI burst read to receive a block of data from sensor FIFO.  <a href="#ga932fe85ad023a10adb9d7a1e2b5473dc">More...</a><br /></td></tr>
+<tr class="separator:ga932fe85ad023a10adb9d7a1e2b5473dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab4e728718b61bd8017a3e1906cfe2999"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs__platform.html#gab4e728718b61bd8017a3e1906cfe2999">xensiv_bgt60trxx_platform_delay</a> (uint32_t ms)</td></tr>
 <tr class="memdesc:gab4e728718b61bd8017a3e1906cfe2999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-specific function that waits for a specified time period in milliseconds.  <a href="#gab4e728718b61bd8017a3e1906cfe2999">More...</a><br /></td></tr>
 <tr class="separator:gab4e728718b61bd8017a3e1906cfe2999"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,8 +121,82 @@ Functions</h2></td></tr>
 <tr class="separator:ga810dbed1b39c06c645c5d5df51e00997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga07e4b7f7bcf7d66905426bc71297c8c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga07e4b7f7bcf7d66905426bc71297c8c4">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_platform_spi_transfer()</h2>
+<a id="ga0c5f00a92e444d6bbbc03c50b04364e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c5f00a92e444d6bbbc03c50b04364e3">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_platform_rst_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xensiv_bgt60trxx_platform_rst_set </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Platform-specific function that sets the output value of the RST pin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">iface</td><td>Platform SPI interface object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to be set (high = true, low = false) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa9261e372ab9abe26b57a11be781e36f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa9261e372ab9abe26b57a11be781e36f">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_platform_spi_cs_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xensiv_bgt60trxx_platform_spi_cs_set </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Platform-specific function that that sets the output value of the SPI CS pin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">iface</td><td>Platform SPI interface object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to be set (high = true, low = false) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga48f90398b13d55e3d7776fffdeacd898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga48f90398b13d55e3d7776fffdeacd898">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_platform_spi_transfer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,19 +205,13 @@ Functions</h2></td></tr>
           <td class="memname">int32_t xensiv_bgt60trxx_platform_spi_transfer </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dev</em>, </td>
+          <td class="paramname"><em>iface</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramtype">uint8_t *&#160;</td>
           <td class="paramname"><em>tx_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>tx_len</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -146,7 +223,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>rx_len</em>&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -156,30 +233,64 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Platform-specific function that performs an SPI transfer. </p>
+<p>Platform-specific function that performs a SPI write/read transfer to the register file of the sensor. </p>
+<p>Synchronously write a block of data out and receive a block of data in. If the data that will be received is not important, pass NULL as rx_data. If the data that will be transmitted is not important, pass NULL as tx_data. Note that passing NULL as rxBuffer and txBuffer are considered invalid cases.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>SPI object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tx_data</td><td>Transmit buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iface</td><td>Platform SPI interface object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tx_data</td><td>The pointer of the buffer with data to transmit. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rx_data</td><td>The pointer to the buffer to store received data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The number of data elements to transmit and receive. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>: Set to NULL to fill data. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if the transfer is completed without errors, otherwise returns XENSIV_BGT60TRXX_STATUS_COM_ERROR. </dd></dl>
+
+</div>
+</div>
+<a id="ga932fe85ad023a10adb9d7a1e2b5473dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga932fe85ad023a10adb9d7a1e2b5473dc">&#9670;&nbsp;</a></span>xensiv_bgt60trxx_platform_spi_fifo_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t xensiv_bgt60trxx_platform_spi_fifo_read </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>rx_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Platform-specific function that performs a SPI burst read to receive a block of data from sensor FIFO. </p>
+<p>ADC samples are stored in the sensor FIFO using 12bits. It is expected to use SPI read transfers with a word length of 12bits. It is expected to drive TX high while data is read in from RX.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tx_len</td><td>Number of bytes to write. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rx_data</td><td>Receive buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iface</td><td>Platform SPI interface object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rx_data</td><td>The pointer to the buffer to store the received data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The number of FIFO data elements of 12bits to receive. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>: Set to NULL if not interested in read data. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">rx_len</td><td>Number of bytes to read. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if the transfer is complete without errors, otherwise returns XENSIV_BGT60TRXX_STATUS_SPI_ERROR. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>XENSIV_BGT60TRXX_STATUS_OK if the read is completed without errors, otherwise returns XENSIV_BGT60TRXX_STATUS_COM_ERROR. </dd></dl>
 
 </div>
 </div>

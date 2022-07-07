@@ -1,12 +1,13 @@
 /***********************************************************************************************//**
  * \file xensiv_bgt60trxx_mtb.h
  *
- * Description: This file contains the MTB platform functions declarations
- *              for interacting with the XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors.
+ * \brief
+ * This file contains the MTB platform functions declarations
+ * for interacting with the XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors.
  *
  ***************************************************************************************************
  * \copyright
- * Copyright 2021 Infineon Technologies AG
+ * Copyright 2022 Infineon Technologies AG
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -65,16 +66,28 @@
 
 /** Result code indicating a communication error. */
 #define XENSIV_BGT60TRXX_RSLT_ERR_COMM\
-    (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_XENSIV_PASCO2, XENSIV_BGT60TRXX_STATUS_SPI_ERROR))
+    (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_XENSIV_BGT60TRXX, XENSIV_BGT60TRXX_STATUS_COM_ERROR))
 
 /** Result code indicating an unsupported device error. */
-#define XENSIV_BGT60TRXX_RSLT_ERR_CHIPID\
-    (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_XENSIV_PASCO2, XENSIV_BGT60TRXX_STATUS_CHIPID_ERROR))
+#define XENSIV_BGT60TRXX_RSLT_ERR_UNKNOWN_DEVICE\
+    (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_XENSIV_BGT60TRXX, XENSIV_BGT60TRXX_STATUS_DEV_ERROR))
+
+/** An attempt was made to reconfigure the interrupt pin */
+#define XENSIV_BGT60TRXX_RSLT_ERR_INTPIN_INUSE\
+    (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_XENSIV_BGT60TRXX, 0x100))
 
 /******************************** Type definitions ****************************************/
 
+/** \cond INTERNAL */
+#if defined(CYHAL_API_VERSION) && (CYHAL_API_VERSION >= 2)
+typedef cyhal_gpio_callback_data_t xensiv_bgt60trxx_mtb_interrupt_pin_t;
+#else
+typedef cyhal_gpio_t               xensiv_bgt60trxx_mtb_interrupt_pin_t;
+#endif
+/** \endcond */
+
 /**
- * Structure holding the XENSIV(TM) BGT60TRxx ModusToolbox(TM) object specific information.
+ * Structure holding the XENSIV(TM) BGT60TRxx ModusToolbox(TM) interface.
  *
  * Application code should not rely on the specific content of this struct.
  * They are considered an implementation detail which is subject to change
@@ -85,22 +98,20 @@ typedef struct
     cyhal_spi_t* spi;
     cyhal_gpio_t selpin;
     cyhal_gpio_t rstpin;
-    cyhal_gpio_t intpin;
-} xensiv_bgt60trxx_mtb_t;
+    xensiv_bgt60trxx_mtb_interrupt_pin_t irqpin;
+} xensiv_bgt60trxx_mtb_iface_t;
 
-/** Structure containing callback data for handling interrupts from sensor.
- * Instances of this object are expected to persist for the length of time the callback is
- * registered. As such, care must be given if declaring it on the stack to ensure the frame does
- * not go away while the callback is still registered.*/
-#if defined(CYHAL_API_VERSION) && (CYHAL_API_VERSION >= 2)
-typedef cyhal_gpio_callback_data_t xensiv_bgt60trxx_mtb_interrupt_cb_t;
-#else
+
+/**
+ * Structure holding the XENSIV(TM) BGT60TRxx ModusToolbox(TM) object.
+ * Content initialized using \ref xensiv_bgt60trxx_mtb_init
+ *
+ */
 typedef struct
 {
-    cyhal_gpio_event_callback_t callback; /**< The callback function to run */
-    void* callback_arg;                   /**< Optional argument for the callback */
-} xensiv_bgt60trxx_mtb_interrupt_cb_t;
-#endif
+    xensiv_bgt60trxx_t dev; /**< sensor object */
+    xensiv_bgt60trxx_mtb_iface_t iface; /**< interface object for communication */
+} xensiv_bgt60trxx_mtb_t;
 
 /******************************* Function prototypes *************************************/
 
@@ -109,12 +120,24 @@ extern "C" {
 #endif
 
 /** Initializes the XENSIV(TM) BGT60TRxx sensor.
+ * The provided pins will be initialized by this function.
+ * If the reset pin is used (\p rstpin) the function will generate a hardware reset sequence.
+ * The SPI slave select pin (\p selpin) is expected to be controlled by this driver,
+ * not the SPI block itself. This allows the driver to issue multiple read/write requests
+ * back to back.
+ *
+ * The function initializes a sensor object using the configuration register list.
+ *
+ * Refer \ref subsection_board_libs_snippets for more information.
  *
  * @param[inout] obj       Pointer to the BGT60TRxx ModusToolbox(TM) object. The caller must
  * allocate the memory for this object but the init function will initialize its contents.
- * @param[in]    spi       Pointer to an initialized SPI HAL object.
- * @param[in]    selpin    Pin connected to the SEL pin of the sensor.
- * @param[in]    rstpin    Pin connected to the RST pin of the sensor.
+ * @param[in]    spi       Pointer to an initialized SPI HAL object using Standard Motorola SPI
+ *                         Mode 0 (CPOL=0, CPHA=0) with MSB first
+ * @param[in]    selpin    Pin connected to the SPI_CSN pin of the sensor.
+ *                         @note This pin cannot be NC
+ * @param[in]    rstpin    Pin connected to the SPI_DIO3 pin of the sensor.
+ *                         @note This pin can be NC
  * @param[in]    regs      Pointer to the configuration registers list.
  * @param[in]    len       Length of the configuration registers list.
  * @return CY_RSLT_SUCCESS if properly initialized; else an error indicating what went wrong.
@@ -126,35 +149,39 @@ cy_rslt_t xensiv_bgt60trxx_mtb_init(xensiv_bgt60trxx_mtb_t* obj,
                                     const uint32_t* regs,
                                     size_t len);
 
-/** Configures a GPIO pin as an interrupt for the XENSIV(TM) BGT60TRXX.
+/** Configures a GPIO pin as an interrupt for the XENSIV(TM) BGT60TRxx.
+ * Initializes and configures the pin (\p irqpin) as an interrupt input.
  * Configures the XENSIV(TM) BGT60TRxx to trigger an interrupt after the number of fifo_limit words
  * are stored in the BGT60TRxx FIFO. Each FIFO word corresponds to two ADC samples.
- * Initializes and configures the pin as an interrupt.
  * @note BGT60TRxx pointer must be initialized using \ref xensiv_bgt60trxx_mtb_init() before
  * calling this function.
+ *
+ * Refer \ref subsection_board_libs_snippets for more information.
+ *
  * @param[inout] obj               Pointer to the BGT60TRxx ModusToolbox(TM) object.
  * @param[in]    fifo_limit        Number of words stored in FIFO that will trigger an interrupt.
- * @param[in]    intpin            Pin connected to the IRQ pin of the sensor.
+ * @param[in]    irqpin            Pin connected to the IRQ pin of the sensor.
  * @param[in]    intr_priority     The priority for NVIC interrupt events.
- * @param[in]    interrupt_cb      Interrupt callback.
+ * @param[in]    callback          The function to call when the specified event happens. Pass NULL
+ * to unregister the handler.
+ * @param[in]    callback_arg      Generic argument that will be provided to the callback when
+ * called, can be NULL
  * @return CY_RSLT_SUCCESS if interrupt was successfully enabled; else an error occurred while
  * initializing the pin.
  */
 cy_rslt_t xensiv_bgt60trxx_mtb_interrupt_init(xensiv_bgt60trxx_mtb_t* obj,
                                               uint16_t fifo_limit,
-                                              cyhal_gpio_t intpin,
+                                              cyhal_gpio_t irqpin,
                                               uint8_t intr_priority,
-                                              xensiv_bgt60trxx_mtb_interrupt_cb_t* interrupt_cb);
-
-
+                                              cyhal_gpio_event_callback_t callback,
+                                              void* callback_arg);
 
 /**
  * Frees up any resources allocated by the XENSIV(TM) BGT60TRxx as part of
  * \ref xensiv_bgt60trxx_mtb_init()
- * and \ref xensiv_bgt60trxx_mtb_interrupt_init().
  * @param[in] obj  Pointer to the BGT60TRxx ModusToolbox(TM) object.
  */
-void xensiv_bgt60trxx_mtb_free(const xensiv_bgt60trxx_mtb_t* obj);
+void xensiv_bgt60trxx_mtb_free(xensiv_bgt60trxx_mtb_t* obj);
 
 #ifdef __cplusplus
 }

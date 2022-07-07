@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "XENSIV BGT60TRxx Radar Sensor", "index.html", [
-    [ "XENSIV™ BGT60TRxx radar sensor", "index.html", null ],
+    [ "XENSIV™ BGT60TRxx Radar Sensor", "index.html", null ],
     [ "API Reference", "modules.html", "modules" ]
   ] ]
 ];

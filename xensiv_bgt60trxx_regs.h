@@ -1,12 +1,13 @@
 /***********************************************************************************************//**
  * \file xensiv_bgt60trxx_regs.h
  *
- * Description: This file contains the register definitions
- *              for interacting with the XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors.
+ * \brief
+ * This file contains the register definitions
+ * for interacting with the XENSIV(TM) BGT60TRxx 60GHz FMCW radar sensors.
  *
  ***************************************************************************************************
  * \copyright
- * Copyright 2021 Infineon Technologies AG
+ * Copyright 2022 Infineon Technologies AG
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -115,7 +116,12 @@
 #define XENSIV_BGT60TRXX_REG_PLL_DFT0                   (0x59U)     /*!< REG_PDFT0: addr */
 #define XENSIV_BGT60TRXX_REG_STAT0                      (0x5dU)     /*!< REG_STAT0: addr */
 #define XENSIV_BGT60TRXX_REG_SDAC_RESULT                (0x5eU)     /*!< REG_SADC_RESULT: addr */
-#define XENSIV_BGT60TRXX_REG_FSTAT                      (0x5fU)     /*!< REG_FSTAT: addr */
+#define XENSIV_BGT60TRXX_REG_FSTAT_TR13C                (0x5fU)     /*!< TR13C REG_FSTAT: addr */
+#define XENSIV_BGT60TRXX_REG_FIFO_TR13C                 (0x60U)     /*!< TR13C REG_FIFO: addr */
+#define XENSIV_BGT60TRXX_REG_FSTAT_UTR13D               (0x5fU)     /*!< UTR13D REG_FSTAT: addr */
+#define XENSIV_BGT60TRXX_REG_FIFO_UTR13D                (0x60U)     /*!< UTR13D REG_FIFO: addr */
+#define XENSIV_BGT60TRXX_REG_FSTAT_UTR11                (0x63U)     /*!< UTR11 REG_FSTAT: addr */
+#define XENSIV_BGT60TRXX_REG_FIFO_UTR11                 (0x64U)     /*!< UTR11: REG_FIFO: addr */
 
 /* Fields of register MAIN */
 /* -------------------------- */
