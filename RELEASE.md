@@ -10,6 +10,9 @@ This library provides functions for interfacing with the XENSIV™ BGT60TRxx 60G
 - APIs for reading the sensor data
 
 ## What Changed?
+### v1.1.0
+
+- fixed radar reset sequence and fifo address for UTR13D
 ### v1.0.0
 
 - Initial production release

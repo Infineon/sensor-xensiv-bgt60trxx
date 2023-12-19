@@ -216,7 +216,10 @@ uint16_t xensiv_bgt60trxx_get_fifo_size(const xensiv_bgt60trxx_t* dev);
  * @brief Obtains the sensor device FIFO status.
  *
  * @param[in] dev Pointer to the XENSIV(TM) BGT60TRxx sensor device object.
- * @param[out] status Pointer to populate with FIFO status.
+ * @param[out] status Pointer to populate with FIFO status. The status value
+ * is used to get fifo error information when compared with bit masks from
+ * xensiv_bgt60trxx_regs.h i.e. to check for fifo overflow error use
+ * XENSIV_BGT60TRXX_REG_FSTAT_FOF_ERR_MSK & status
  * @return XENSIV_BGT60TRXX_STATUS_OK if reading the FIFO status was successful; else
  * an error indicating what went wrong.
  */

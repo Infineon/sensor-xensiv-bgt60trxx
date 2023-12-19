@@ -322,7 +322,7 @@ Macros</h2></td></tr>
 <tr class="separator:gaaeb83a9203269f43dc87d6ea937f9671"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad6d08eb0513af502b7daa9dfa369add3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gad6d08eb0513af502b7daa9dfa369add3">XENSIV_BGT60TRXX_REG_FSTAT_UTR13D</a>&#160;&#160;&#160;(0x5fU)</td></tr>
 <tr class="separator:gad6d08eb0513af502b7daa9dfa369add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga535ad75c3e1db85c7de1449fe2f46adc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga535ad75c3e1db85c7de1449fe2f46adc">XENSIV_BGT60TRXX_REG_FIFO_UTR13D</a>&#160;&#160;&#160;(0x60U)</td></tr>
+<tr class="memitem:ga535ad75c3e1db85c7de1449fe2f46adc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga535ad75c3e1db85c7de1449fe2f46adc">XENSIV_BGT60TRXX_REG_FIFO_UTR13D</a>&#160;&#160;&#160;(0x63U)</td></tr>
 <tr class="separator:ga535ad75c3e1db85c7de1449fe2f46adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab734ca7077c226c172b4e042db108fe6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gab734ca7077c226c172b4e042db108fe6">XENSIV_BGT60TRXX_REG_FSTAT_UTR11</a>&#160;&#160;&#160;(0x63U)</td></tr>
 <tr class="separator:gab734ca7077c226c172b4e042db108fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2035,7 +2035,7 @@ SPI speed mode. </td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XENSIV_BGT60TRXX_REG_FIFO_UTR13D&#160;&#160;&#160;(0x60U)</td>
+          <td class="memname">#define XENSIV_BGT60TRXX_REG_FIFO_UTR13D&#160;&#160;&#160;(0x63U)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3233,7 +3233,7 @@ SPI speed mode. </td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dev</td><td>Pointer to the XENSIV(TM) BGT60TRxx sensor device object. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Pointer to populate with FIFO status. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Pointer to populate with FIFO status. The status value is used to get fifo error information when compared with bit masks from xensiv_bgt60trxx_regs.h i.e. to check for fifo overflow error use XENSIV_BGT60TRXX_REG_FSTAT_FOF_ERR_MSK &amp; status </td></tr>
   </table>
   </dd>
 </dl>

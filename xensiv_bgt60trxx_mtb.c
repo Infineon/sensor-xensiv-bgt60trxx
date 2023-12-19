@@ -65,13 +65,14 @@ cy_rslt_t xensiv_bgt60trxx_mtb_init(xensiv_bgt60trxx_mtb_t* obj,
     CY_ASSERT(obj != NULL);
     CY_ASSERT(spi != NULL);
     CY_ASSERT(selpin != NC);
+    CY_ASSERT(rstpin != NC);
     CY_ASSERT(regs != NULL);
 
     xensiv_bgt60trxx_mtb_iface_t* iface = &obj->iface;
 
     iface->spi = spi;
-    iface->selpin = NC;
-    iface->rstpin = NC;
+    iface->selpin = selpin;
+    iface->rstpin = rstpin;
     set_pin(&(iface->irqpin), NC);
 
     cy_rslt_t rslt = cyhal_gpio_init(selpin,
@@ -81,30 +82,28 @@ cy_rslt_t xensiv_bgt60trxx_mtb_init(xensiv_bgt60trxx_mtb_t* obj,
 
     if (CY_RSLT_SUCCESS == rslt)
     {
-        iface->selpin = selpin;
-        if (rstpin != NC)
-        {
-            rslt = cyhal_gpio_init(rstpin,
-                                   CYHAL_GPIO_DIR_OUTPUT,
-                                   CYHAL_GPIO_DRIVE_STRONG,
-                                   true);
-        }
+        rslt = cyhal_gpio_init(rstpin,
+                               CYHAL_GPIO_DIR_OUTPUT,
+                               CYHAL_GPIO_DRIVE_STRONG,
+                               true);
     }
 
+
     xensiv_bgt60trxx_t* dev = &obj->dev;
+
+    /* perform device hard reset before beginning init via SPI */
+    xensiv_bgt60trxx_platform_rst_set(iface, true);
+    xensiv_bgt60trxx_platform_spi_cs_set(iface, true);
+    xensiv_bgt60trxx_platform_delay(1U);
+    xensiv_bgt60trxx_platform_rst_set(iface, false);
+    xensiv_bgt60trxx_platform_delay(1U);
+    xensiv_bgt60trxx_platform_rst_set(iface, true);
+    xensiv_bgt60trxx_platform_delay(1U);
 
     if (CY_RSLT_SUCCESS == rslt)
     {
         int32_t res = xensiv_bgt60trxx_init(dev, iface, false);
         rslt = XENSIV_BGT60TRXX_ERROR(res);
-    }
-
-    if (CY_RSLT_SUCCESS == rslt)
-    {
-        if (iface->rstpin != NC)
-        {
-            xensiv_bgt60trxx_hard_reset(dev);
-        }
     }
 
     if (CY_RSLT_SUCCESS == rslt)

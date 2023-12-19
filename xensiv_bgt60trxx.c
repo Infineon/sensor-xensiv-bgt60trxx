@@ -118,6 +118,8 @@ int32_t xensiv_bgt60trxx_init(xensiv_bgt60trxx_t* dev,
     dev->iface = iface;
     dev->high_speed = high_speed;
 
+    //xensiv_bgt60trxx_hard_reset(dev);
+
     if (high_speed)
     {
         status = xensiv_bgt60trxx_set_reg(dev,

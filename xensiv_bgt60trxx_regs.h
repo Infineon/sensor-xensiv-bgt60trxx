@@ -119,7 +119,7 @@
 #define XENSIV_BGT60TRXX_REG_FSTAT_TR13C                (0x5fU)     /*!< TR13C REG_FSTAT: addr */
 #define XENSIV_BGT60TRXX_REG_FIFO_TR13C                 (0x60U)     /*!< TR13C REG_FIFO: addr */
 #define XENSIV_BGT60TRXX_REG_FSTAT_UTR13D               (0x5fU)     /*!< UTR13D REG_FSTAT: addr */
-#define XENSIV_BGT60TRXX_REG_FIFO_UTR13D                (0x60U)     /*!< UTR13D REG_FIFO: addr */
+#define XENSIV_BGT60TRXX_REG_FIFO_UTR13D                (0x63U)     /*!< UTR13D REG_FIFO: addr */
 #define XENSIV_BGT60TRXX_REG_FSTAT_UTR11                (0x63U)     /*!< UTR11 REG_FSTAT: addr */
 #define XENSIV_BGT60TRXX_REG_FIFO_UTR11                 (0x64U)     /*!< UTR11: REG_FIFO: addr */
 

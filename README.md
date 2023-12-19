@@ -12,7 +12,7 @@ Once the **Radar Development Kit** is installed using the Infineon Developer Cen
 
 ## Quick start
 
-For the hardware setup, see the [Radar Wingboard user guide](https://www.infineon.com/cms/en/product/promopages/connectedsensorkit/).
+For the hardware setup, see the [Radar development kit user guide](https://www.infineon.com/cms/en/product/evaluation-boards/kit_csk_bgt60tr13c/).
 
 The initialization of the XENSIV™ BGT60TRxx radar sensor requires a list of registers that can be generated using the bgt60-configurator-cli tool.
 
