@@ -59,7 +59,7 @@ To generate the register file run in a command line window:
 
 Follow the steps below to create a simple application that checks basic functionality and connectivity to the radar sensor. The application configures the sensor according to the user defined configuration, enables the sensor test pattern generator on chip for data transfer check, starts the frame generation and compares the obtained data from the radar sensor on antenna RX1 against the defined bit sequence defined by the sensor test pattern generator.
 
-1. Create an empty ModusToolbox application for your board, e.g. CYSBSYSKIT-DEV-01.
+1. Create an empty ModusToolbox application for your board, e.g. KIT_PSE84_AI.
 
 2. Add this library, i.e. sensor-xensiv-bgt60trxx, to the application using the Library Manager. 
 
@@ -79,9 +79,13 @@ Follow the steps below to create a simple application that checks basic function
    - `PIN_XENSIV_BGT60TRXX_RSTN`
    - `PIN_XENSIV_BGT60TRXX_LDO_EN`
 
-    **Note:** The pins in the code example below correspond to the ones used in [CYBSYSKIT-DEV-01](https://github.com/Infineon/TARGET_CYSBSYSKIT-DEV-01) kit 
+    **Note:** The pins in the code example below correspond to the ones used in [CYBSYSKIT-DEV-01](https://github.com/Infineon/TARGET_KIT_PSE84_AI) kit 
 
 5. Place the following code in the *main.c* file.
+\cond
+<details>
+
+<summary>PSoC6</summary>
 
 ```cpp
 #include <inttypes.h>
@@ -256,6 +260,221 @@ int main(void)
 }
 
 ```
+
+</details>
+
+<details>
+
+<summary>PSoC Edge</summary>
+
+```cpp
+/*******************************************************************************
+* Header Files
+*******************************************************************************/
+
+#include "cybsp.h"
+#include <inttypes.h>
+#include "retarget_io_init.h"
+#include "xensiv_bgt60trxx_mtb.h"
+#define XENSIV_BGT60TRXX_CONF_IMPL
+#include "presence_radar_settings.h"
+
+/*******************************************************************************
+* Macros
+*******************************************************************************/
+
+#define INIT_SUCCESS            (0UL)
+#define INIT_FAILURE            (1UL)
+#define XENSIV_BGT60TRXX_IRQ_PRIORITY                      (3U)
+
+#define NUM_SAMPLES_PER_FRAME               (XENSIV_BGT60TRXX_CONF_NUM_RX_ANTENNAS *\
+                                             XENSIV_BGT60TRXX_CONF_NUM_CHIRPS_PER_FRAME *\
+                                             XENSIV_BGT60TRXX_CONF_NUM_SAMPLES_PER_CHIRP)
+
+#define SPI_INTR_NUM        ((IRQn_Type) CYBSP_RADAR_INT_IRQ)
+#define SPI_INTR_PRIORITY   (2U)
+
+cy_en_scb_spi_status_t init_status;
+cy_stc_scb_spi_context_t SPI_context;
+
+xensiv_bgt60trxx_mtb_t sensor;
+
+static volatile bool data_available = false;
+
+cy_stc_sysint_t irq_cfg;
+
+void xensiv_bgt60trxx_interrupt_handler(void);
+
+void mSPI_Interrupt(void)
+{
+    Cy_SCB_SPI_Interrupt(CYBSP_SPI_CONTROLLER_HW, &SPI_context);
+}
+
+/*******************************************************************************
+* Function Name: main
+********************************************************************************
+* Summary:
+* This is the main function of the CM33 non-secure application.
+*
+* It initializes the device and board peripherals.
+*
+* Parameters:
+*  none
+*
+* Return:
+*  int
+*
+*******************************************************************************/
+int main(void)
+{
+    cy_rslt_t result = CY_RSLT_SUCCESS;
+    uint32_t status = INIT_SUCCESS;
+
+    /* Initialize the device and board peripherals */
+    result = cybsp_init();
+
+    /* Board initialization failed. Stop program execution */
+    if (CY_RSLT_SUCCESS != result)
+    {
+        handle_app_error();
+    }
+
+    /* Enable global interrupts */
+    __enable_irq();
+
+    sensor.iface.scb_inst = CYBSP_SPI_CONTROLLER_HW;
+    sensor.iface.spi = &SPI_context;
+    sensor.iface.sel_port = CYBSP_RSPI_CS_PORT;
+    sensor.iface.sel_pin = CYBSP_RSPI_CS_PIN;
+    sensor.iface.rst_port = CYBSP_RADAR_RESET_PORT;
+    sensor.iface.rst_pin = CYBSP_RADAR_RESET_PIN;
+    sensor.iface.irq_port = CYBSP_RADAR_INT_PORT;
+    sensor.iface.irq_pin = CYBSP_RADAR_INT_PIN;
+    sensor.iface.irq_num = CYBSP_RADAR_INT_IRQ;
+
+    static uint16_t samples[NUM_SAMPLES_PER_FRAME] = { 0x00 };
+
+    irq_cfg.intrSrc = CYBSP_RADAR_INT_IRQ;
+    irq_cfg.intrPriority = XENSIV_BGT60TRXX_IRQ_PRIORITY;
+
+    /* Initialize retarget-io middleware */
+    init_retarget_io();
+
+    /* \x1b[2J\x1b[;H - ANSI ESC sequence for clear screen */
+    printf("\x1b[2J\x1b[;H");
+
+    printf("****************** "
+           "BGT60TR13C Radar Sensor - HMI Kit"
+           "****************** \r\n\n");
+
+    init_status = Cy_SCB_SPI_Init(CYBSP_SPI_CONTROLLER_HW, &CYBSP_SPI_CONTROLLER_config, &SPI_context);
+
+    /* If the initialization fails, update status */
+    if (CY_SCB_SPI_SUCCESS != init_status)
+    {
+        status = INIT_FAILURE;
+    }
+
+    if (status == INIT_SUCCESS)
+    {
+        cy_stc_sysint_t spiIntrConfig =
+        {
+            .intrSrc      = SPI_INTR_NUM,
+            .intrPriority = SPI_INTR_PRIORITY,
+        };
+
+        Cy_SysInt_Init(&spiIntrConfig, &mSPI_Interrupt);
+        NVIC_EnableIRQ(SPI_INTR_NUM);
+
+        /* Set active target select to line 0 */
+        Cy_SCB_SPI_SetActiveSlaveSelect(CYBSP_SPI_CONTROLLER_HW, CY_SCB_SPI_SLAVE_SELECT1);
+        /* Enable SPI Controller block. */
+        Cy_SCB_SPI_Enable(CYBSP_SPI_CONTROLLER_HW);
+    }
+
+    /* Reduce drive strength to improve EMI */
+    Cy_GPIO_SetSlewRate(CYBSP_RSPI_MOSI_PORT, CYBSP_RSPI_MOSI_PIN, CY_GPIO_SLEW_FAST);
+    Cy_GPIO_SetDriveSel(CYBSP_RSPI_MOSI_PORT, CYBSP_RSPI_MOSI_PIN, CY_GPIO_DRIVE_1_8);
+    Cy_GPIO_SetSlewRate(CYBSP_RSPI_CLK_PORT, CYBSP_RSPI_CLK_PIN, CY_GPIO_SLEW_FAST);
+    Cy_GPIO_SetDriveSel(CYBSP_RSPI_CLK_PORT, CYBSP_RSPI_CLK_PIN, CY_GPIO_DRIVE_1_8);
+
+    result = xensiv_bgt60trxx_mtb_init(&sensor, register_list, XENSIV_BGT60TRXX_CONF_NUM_REGS);
+    CY_ASSERT(result == CY_RSLT_SUCCESS);
+
+    result = xensiv_bgt60trxx_mtb_interrupt_init(&sensor, NUM_SAMPLES_PER_FRAME);
+    CY_ASSERT(result == CY_RSLT_SUCCESS);
+
+    Cy_SysInt_Init(&irq_cfg, xensiv_bgt60trxx_interrupt_handler);
+
+    NVIC_ClearPendingIRQ(irq_cfg.intrSrc);
+    NVIC_EnableIRQ(irq_cfg.intrSrc);
+
+    Cy_GPIO_ClearInterrupt(CYBSP_RADAR_INT_PORT, CYBSP_RADAR_INT_IRQ);
+    NVIC_ClearPendingIRQ(irq_cfg.intrSrc);
+
+    Cy_SysLib_Delay(1000);
+
+    if (xensiv_bgt60trxx_enable_data_test_mode(&sensor.dev, true) != XENSIV_BGT60TRXX_STATUS_OK)
+    {
+        CY_ASSERT(0);
+    }
+
+    if (xensiv_bgt60trxx_start_frame(&sensor.dev, true) != XENSIV_BGT60TRXX_STATUS_OK)
+    {
+        CY_ASSERT(0);
+    }
+
+    /* Enable CM55. */
+    /* CY_CM55_APP_BOOT_ADDR must be updated if CM55 memory layout is changed.*/
+    // Cy_SysEnableCM55(MXCM55, CY_CM55_APP_BOOT_ADDR, CM55_BOOT_WAIT_TIME_USEC);
+
+    uint32_t frame_idx = 0;
+    uint16_t test_word = XENSIV_BGT60TRXX_INITIAL_TEST_WORD;
+
+    for(;;)
+    {
+        while (data_available == false);
+        data_available = false;
+
+        if (xensiv_bgt60trxx_get_fifo_data(&sensor.dev, samples,
+                                           NUM_SAMPLES_PER_FRAME) == XENSIV_BGT60TRXX_STATUS_OK)
+        {
+            /* Check received data */
+            for (int32_t sample_idx = 0; sample_idx < NUM_SAMPLES_PER_FRAME; ++sample_idx)
+            {
+                    if (test_word != samples[sample_idx])
+                    {
+                        printf("Frame %" PRIu32 " error detected. "
+                               "Expected: %" PRIu16 ". "
+                               "Received: %" PRIu16 "\n",
+                               frame_idx, test_word, samples[sample_idx]);
+                        CY_ASSERT(0);
+                    }
+
+                    // Generate next test_word
+                    test_word = xensiv_bgt60trxx_get_next_test_word(test_word);
+            }
+        }
+
+        printf("Frame %" PRIu32 " received correctly\n", frame_idx);
+        frame_idx++;
+    }
+}
+
+void xensiv_bgt60trxx_interrupt_handler(void)
+{
+    /* Clears the triggered pin interrupt */
+    Cy_GPIO_ClearInterrupt(CYBSP_RADAR_INT_PORT, CYBSP_RADAR_INT_PIN);
+    NVIC_ClearPendingIRQ(irq_cfg.intrSrc);
+	data_available = true;
+}
+
+/* [] END OF FILE */
+```
+
+</details>
+\endcond
+
 6. Connect the board to your PC using the provided USB cable through the KitProg3 USB connector.
 
 7. Open a terminal program and select the KitProg3 COM port. Set the serial port parameters to 8N1 and 115200 baud.

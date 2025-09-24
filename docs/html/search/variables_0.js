@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dev',['dev',['../group__group__board__libs__mtb.html#ab123c596a05ee15fa64b6b9b8f40dd39',1,'xensiv_bgt60trxx_mtb_t']]]
+  ['high_5fspeed_0',['high_speed',['../group__group__board__libs.html#a9cf08c6300a6e1cdeb78a785c13d69b1',1,'xensiv_bgt60trxx_t']]]
 ];

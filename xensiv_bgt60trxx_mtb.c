@@ -23,7 +23,7 @@
  * limitations under the License.
  **************************************************************************************************/
 
-#if defined(CY_USING_HAL)
+#if defined(CY_USING_HAL) && !defined(COMPONENT_MTB_HAL)
 
 #include "cyhal_system.h"
 #include "xensiv_bgt60trxx_mtb.h"
@@ -367,4 +367,4 @@ static cy_rslt_t config_int(xensiv_bgt60trxx_mtb_interrupt_pin_t* intpin,
 }
 
 
-#endif // defined(CY_USING_HAL)
+#endif // #if defined(CY_USING_HAL) && !defined(COMPONENT_MTB_HAL)

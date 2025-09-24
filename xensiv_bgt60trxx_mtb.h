@@ -26,9 +26,14 @@
 #ifndef XENSIV_BGT60TRXX_MTB_H_
 #define XENSIV_BGT60TRXX_MTB_H_
 
+#if defined(COMPONENT_MTB_HAL)
+#include "xensiv_bgt60trxx_edge.h"
+#elif defined(CY_USING_HAL)
+
 #include "cy_result.h"
 
 #include "xensiv_bgt60trxx.h"
+
 
 /**
  * \addtogroup group_board_libs_mtb XENSIV(TM) BGT60TRxx Radar Sensor ModusToolBox(TM) Interface
@@ -52,7 +57,6 @@
  *
  */
 
-#if defined(CY_USING_HAL)
 #include "cyhal_gpio.h"
 #include "cyhal_spi.h"
 
@@ -187,8 +191,7 @@ void xensiv_bgt60trxx_mtb_free(xensiv_bgt60trxx_mtb_t* obj);
 }
 #endif
 
-#endif // defined(CY_USING_HAL)
-
 /** \} group_board_libs_mtb */
 
+#endif // #elif defined(CY_USING_HAL)
 #endif // ifndef XENSIV_BGT60TRXX_MTB_H_
